@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+  <div class="dropdown col">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+        (click)="showDropdown()">
+        Menu
+      </button>
+      <ul class="dropdown-menu" [ngClass]="classDropdown">
+        <li>
+          <button class="btn hover" (click)="companyDetails()">Show Company Details</button>
+        </li>
+        <li>
+          <button class="btn hover" (click)="addNewEmployee()">Add Employee</button>
+        </li>
+        <li>
+          <button class="btn hover" (click)="downloadCsv()">Download CSV</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="input-group mb-3 col">
+      <span class="input-group-text">
+        <i class="bi bi-search"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="searchText" name="search"
+        (input)="changeSearch()">
+      <button class="input-group-text" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+
+  <form #hoursForm="ngForm">
+    <div class="input-group mb-3">
+      
+      <input class="form-control" id="inputGroupFile" type="file" (change)="addHours($event)" [(ngModel)]="hoursFile"
+      accept="data/xlsx, data/csv" name="file" />
+      <label class="input-group-text" for="inputGroupFile">Upload an attendance log file (*.csv)</label>
+    </div>
+  </form>
+</div>
+
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Start Job</th>
+      <th>More info</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (employee of showListEmployee; track $index) {
+    <tr>
+      <td class="identity">{{ $index }}</td>
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.address }}</td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.startJob }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary me-2" (click)="moredetails(employee.id!)">
+          <i class="bi bi-info-circle"></i>
+        </button>
+      </td>
+    </tr>}
+  </tbody>
+</table>
