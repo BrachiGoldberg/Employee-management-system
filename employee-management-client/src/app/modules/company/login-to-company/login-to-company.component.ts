@@ -35,7 +35,8 @@ export class LoginToCompanyComponent {
             didOpen: () => {
               const timer = Swal.getPopup()!.querySelector("b");
               timerInterval = setInterval(() => {
-                timer!.textContent = `${Swal.getTimerLeft()}`;
+                if (timer?.textContent)
+                  timer.textContent = `${Swal.getTimerLeft()}`;
               }, 100);
             },
             willClose: () => {

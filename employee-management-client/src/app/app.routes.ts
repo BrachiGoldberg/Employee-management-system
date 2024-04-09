@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AddNewCompanyComponent } from './modules/company/add-new-company/add-new-company.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { permissionNavigateGuard } from './permission-navigate.guard';
 
 export const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: 'full' },
@@ -12,7 +13,8 @@ export const routes: Routes = [
     },
     {
         path: "employee", loadChildren:
-            () => import("./modules/employee/employee.module").then(m => m.EmployeeModule)
+            () => import("./modules/employee/employee.module").then(m => m.EmployeeModule),
+        canActivate: [permissionNavigateGuard]
     },
     { path: "company/new-company", component: AddNewCompanyComponent },
     { path: "**", component: ErrorPageComponent }

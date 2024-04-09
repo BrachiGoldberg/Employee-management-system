@@ -61,7 +61,7 @@
       <td>{{ employee.lastName }}</td>
       <td>{{ employee.address }}</td>
       <td>{{ employee.email }}</td>
-      <td>{{ employee.startJob }}</td>
+      <td>{{ employee.startJob | date:'dd/MM/yyyy'}}</td>
       <td>
         <button class="btn btn-sm btn-primary me-2" (click)="moredetails(employee.id!)">
           <i class="bi bi-info-circle"></i>
