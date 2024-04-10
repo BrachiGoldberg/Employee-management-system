@@ -1,27 +1,26 @@
-import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Company } from '../models/company.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CompanyService } from '../company.service';
-import Swal from 'sweetalert2';
-import { UnauthorizedError } from '../../../app.component';
+import { Component } from '@angular/core'
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Company } from '../models/company.model'
+import { ActivatedRoute, Router } from '@angular/router'
+import { CompanyService } from '../company.service'
+import { UnauthorizedError } from '../../../app.component'
 
 export function emailValidator(control: AbstractControl): { [key: string]: any } | null {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const valid = emailRegex.test(control.value);
-  return valid ? null : { 'invalidEmail': true };
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  const valid = emailRegex.test(control.value)
+  return valid ? null : { 'invalidEmail': true }
 }
 
 export function passwordValidator(control: AbstractControl): { [key: string]: any } | null {
-  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-  const valid = passwordRegex.test(control.value);
-  return valid ? null : { 'invalidPassword': true };
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+  const valid = passwordRegex.test(control.value)
+  return valid ? null : { 'invalidPassword': true }
 }
 
 export function identityValidator(control: AbstractControl): { [key: string]: any } | null {
-  const passwordRegex = /^[\d]{9}$/;
-  const valid = passwordRegex.test(control.value);
-  return valid ? null : { 'invalidPassword': true };
+  const passwordRegex = /^[\d]{9}$/
+  const valid = passwordRegex.test(control.value)
+  return valid ? null : { 'invalidPassword': true }
 }
 
 @Component({

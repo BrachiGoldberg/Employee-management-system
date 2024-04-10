@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { EmployeeService } from '../employee.service';
-import { Employee } from '../models/employee.model';
-import { Router } from '@angular/router';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
-import { AttendanceJournalPostModel } from '../models/attendance-journal.model';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { EmployeeService } from '../employee.service'
+import { Employee } from '../models/employee.model'
+import { Router } from '@angular/router'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
+import { AttendanceJournalPostModel } from '../models/attendance-journal.model'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-employees-list',
@@ -79,15 +79,15 @@ export class EmployeesListComponent {
 
   downloadCsv() {
     this._service.downloadCsv(this.companyId!).subscribe((data: Blob) => {
-      const blob = new Blob([data], { type: 'text/csv' });
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'data.csv';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-    });
+      const blob = new Blob([data], { type: 'text/csv' })
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'data.csv'
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+    })
   }
 
 
@@ -156,7 +156,7 @@ export class EmployeesListComponent {
           title: "The attendance hours have been successfully recorded",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
       },
       error: err => {
         this.errosFunction(err.status)

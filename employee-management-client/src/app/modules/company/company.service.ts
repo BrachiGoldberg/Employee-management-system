@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Company } from './models/company.model';
-import { CompanyTerms } from './models/company-terms.model';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Company } from './models/company.model'
+import { CompanyTerms } from './models/company-terms.model'
 
 const baseUrl = 'https://localhost:7081/api'
 
@@ -18,7 +18,7 @@ export class CompanyService {
     if (token) {
       return token
     }
-    return null;
+    return null
   }
 
   //good!

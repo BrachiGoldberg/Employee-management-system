@@ -1,27 +1,27 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../models/employee.model';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { EmployeeService } from '../employee.service';
-import { EmployeePosition, Position } from '../models/position.model.';
-import { DatePipe } from '@angular/common';
-import { emailValidator, identityValidator } from '../../company/add-new-company/add-new-company.component';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Employee } from '../models/employee.model'
+import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms'
+import { EmployeeService } from '../employee.service'
+import { EmployeePosition, Position } from '../models/position.model.'
+import { DatePipe } from '@angular/common'
+import { emailValidator, identityValidator } from '../../company/add-new-company/add-new-company.component'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
+import Swal from 'sweetalert2'
 
 export function dateComparisonValidator(): ValidatorFn {
   return (formGroup: AbstractControl): ValidationErrors | null => {
-    const birthDateControl = formGroup.get('birthDate');
-    const startJobControl = formGroup.get('startJob');
+    const birthDateControl = formGroup.get('birthDate')
+    const startJobControl = formGroup.get('startJob')
     if (birthDateControl && startJobControl) {
-      const birthDate = new Date(birthDateControl.value);
-      const startJob = new Date(startJobControl.value);
+      const birthDate = new Date(birthDateControl.value)
+      const startJob = new Date(startJobControl.value)
       if (startJob < birthDate) {
-        return { 'dateComparison': true };
+        return { 'dateComparison': true }
       }
     }
-    return null;
-  };
+    return null
+  }
 }
 
 @Component({
@@ -199,7 +199,7 @@ export class AddUpdateEmployeeComponent {
           title: "The employee has been successfully update",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
         history.back()
       },
       error: err => {
@@ -339,7 +339,7 @@ export class AddUpdateEmployeeComponent {
               title: "Deleted!",
               text: "The employee has been deleted.",
               icon: "success"
-            });
+            })
             this._router.navigate(['employee'])
           },
           error: err => {
@@ -347,7 +347,7 @@ export class AddUpdateEmployeeComponent {
           }
         })
       }
-    });
+    })
   }
 
   updateTerms() {

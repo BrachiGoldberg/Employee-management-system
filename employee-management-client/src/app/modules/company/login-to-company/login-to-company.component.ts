@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { CompanyService } from '../company.service';
-import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { CompanyService } from '../company.service'
+import { Router } from '@angular/router'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login-to-company',
@@ -12,7 +12,7 @@ export class LoginToCompanyComponent {
 
   userName: string | undefined
   password: string | undefined
-  passwordVisible: boolean = false;
+  passwordVisible: boolean = false
 
 
   constructor(private _service: CompanyService, private _router: Router) { }
@@ -33,14 +33,14 @@ export class LoginToCompanyComponent {
             timerProgressBar: true,
             showCloseButton: false,
             didOpen: () => {
-              const timer = Swal.getPopup()!.querySelector("b");
+              const timer = Swal.getPopup()!.querySelector("b")
               timerInterval = setInterval(() => {
                 if (timer?.textContent)
-                  timer.textContent = `${Swal.getTimerLeft()}`;
-              }, 100);
+                  timer.textContent = `${Swal.getTimerLeft()}`
+              }, 100)
             },
             willClose: () => {
-              clearInterval(timerInterval);
+              clearInterval(timerInterval)
             }
           })
           sessionStorage.setItem("token", data.token)
@@ -59,7 +59,7 @@ export class LoginToCompanyComponent {
   }
 
   togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible;
+    this.passwordVisible = !this.passwordVisible
   }
 
   massegeLoginFails() {

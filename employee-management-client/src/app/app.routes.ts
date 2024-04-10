@@ -1,8 +1,8 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AddNewCompanyComponent } from './modules/company/add-new-company/add-new-company.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { permissionNavigateGuard } from './permission-navigate.guard';
+import { Routes } from '@angular/router'
+import { HomeComponent } from './home/home.component'
+import { AddNewCompanyComponent } from './modules/company/add-new-company/add-new-company.component'
+import { ErrorPageComponent } from './error-page/error-page.component'
+import { permissionNavigateGuard } from './permission-navigate.guard'
 
 export const routes: Routes = [
     { path: "", redirectTo: "home", pathMatch: 'full' },

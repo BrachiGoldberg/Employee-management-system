@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CompanyTerms } from '../models/company-terms.model';
-import { CompanyService } from '../company.service';
-import { Company } from '../models/company.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
+import { Component } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import { CompanyTerms } from '../models/company-terms.model'
+import { CompanyService } from '../company.service'
+import { Company } from '../models/company.model'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import Swal from 'sweetalert2'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
 
 @Component({
   selector: 'app-company-terms',
@@ -126,7 +126,7 @@ export class CompanyTermsComponent {
             title: "The company has been successfully added",
             showConfirmButton: false,
             timer: 1500
-          });
+          })
           sessionStorage.setItem("token", data.token)
           sessionStorage.setItem("company", JSON.stringify(data.company))
           this._router.navigate(["employee/add-manager"])
@@ -158,7 +158,7 @@ export class CompanyTermsComponent {
           title: "The changes were successfully saved",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
         this._router.navigate([`company/details/${this.compId}`])
       },
       error: err => {

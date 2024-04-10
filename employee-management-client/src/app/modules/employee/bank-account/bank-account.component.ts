@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BankAccount } from '../models/bank-account.model';
-import { EmployeeService } from '../employee.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../models/employee.model';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { BankAccount } from '../models/bank-account.model'
+import { EmployeeService } from '../employee.service'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Employee } from '../models/employee.model'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
+import Swal from 'sweetalert2'
 
 export function numbersValidator(control: AbstractControl): { [key: string]: any } | null {
-  const passwordRegex = /^[\d]{1,}$/;
-  const valid = passwordRegex.test(control.value);
-  return valid ? null : { 'invalidPassword': true };
+  const passwordRegex = /^[\d]{1,}$/
+  const valid = passwordRegex.test(control.value)
+  return valid ? null : { 'invalidPassword': true }
 }
 
 @Component({
@@ -112,7 +112,7 @@ export class BankAccountComponent {
           title: "The bank account has been successfully update",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
         history.back()
       },
       error: err => {
@@ -132,7 +132,7 @@ export class BankAccountComponent {
           title: "The employee has been successfully added",
           showConfirmButton: false,
           timer: 1500
-        });
+        })
         let company = sessionStorage.getItem("company")
         let token = sessionStorage.getItem("token")
         sessionStorage.clear()

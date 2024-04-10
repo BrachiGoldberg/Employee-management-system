@@ -1,12 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Employee, EmployeePostModel } from './models/employee.model';
-import { EmployeePosition, Position } from './models/position.model.';
-import { EmployeeTerms } from './models/employee-terms.model';
-import { BankAccount } from './models/bank-account.model';
-import { map } from 'rxjs/operators';
-import { AttendanceJournal, AttendanceJournalPostModel } from './models/attendance-journal.model';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Employee, EmployeePostModel } from './models/employee.model'
+import { EmployeePosition, Position } from './models/position.model.'
+import { EmployeeTerms } from './models/employee-terms.model'
+import { BankAccount } from './models/bank-account.model'
+import { map } from 'rxjs/operators'
+import { AttendanceJournal, AttendanceJournalPostModel } from './models/attendance-journal.model'
 
 
 const baseUrl = 'https://localhost:7081/api'
@@ -26,7 +26,7 @@ export class EmployeeService {
     if (token) {
       return token
     }
-    return null;
+    return null
   }
 
   //good!
@@ -52,7 +52,7 @@ export class EmployeeService {
     let token = this.getTokenBearer()
     let data1 = new Date(employee.birthDate!)
     let data2 = new Date(employee.startJob!)
-    let positionsToSend: { positionId: number | undefined; startPosition: Date | undefined; }[] = []
+    let positionsToSend: { positionId: number | undefined, startPosition: Date | undefined }[] = []
     employee.positions.forEach(p => positionsToSend.push({ positionId: p.positionId, startPosition: p.startPositionDate }))
 
     return this._http.post<Employee>(`${baseUrl}/Employee/${companyId}?termsId=${termsId}&bankAccountId=${bankId}`,
@@ -91,7 +91,7 @@ export class EmployeeService {
 
   updatePositions(empId: number, positionsList: EmployeePosition[]): Observable<Employee> {
     let token = this.getTokenBearer()
-    let positionsToSend: { positionId: number | undefined; startPosition: Date | undefined; }[] = []
+    let positionsToSend: { positionId: number | undefined, startPosition: Date | undefined }[] = []
     positionsList.forEach(p => positionsToSend.push({ positionId: p.positionId, startPosition: p.startPositionDate }))
     return this._http.put<Employee>(`${baseUrl}/Employee/${empId}/positions`, positionsToSend, { headers: { "Authorization": `Bearer ${token}` } })
   }
@@ -109,8 +109,8 @@ export class EmployeeService {
     return this._http.get(`${baseUrl}/employee/${compId}/download`,
       { headers: { "Authorization": `Bearer ${token}` }, responseType: 'text' }).pipe(
         map((response: any) => {
-          const blob = new Blob([response], { type: 'text/csv' });
-          return blob;
+          const blob = new Blob([response], { type: 'text/csv' })
+          return blob
         })
       )
   }

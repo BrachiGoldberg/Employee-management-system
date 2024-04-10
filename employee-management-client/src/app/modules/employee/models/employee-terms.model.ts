@@ -2,6 +2,7 @@
 
 
 export class EmployeeTerms{
+    
     id: number | undefined
     hourlyWage: number | undefined
     overtimePay: number | undefined

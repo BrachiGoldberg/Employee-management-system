@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import { Company } from '../models/company.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CompanyService } from '../company.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { emailValidator } from '../add-new-company/add-new-company.component';
-import { UnauthorizedError } from '../../../app.component';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { Company } from '../models/company.model'
+import { ActivatedRoute, Router } from '@angular/router'
+import { CompanyService } from '../company.service'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { emailValidator } from '../add-new-company/add-new-company.component'
+import { UnauthorizedError } from '../../../app.component'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-update-company-details',
@@ -84,7 +84,7 @@ export class UpdateCompanyDetailsComponent {
             title: "The changes were successfully saved",
             showConfirmButton: false,
             timer: 1500
-          });
+          })
           this._router.navigate([`company/details/${this.id}`])
         },
         error: err => {

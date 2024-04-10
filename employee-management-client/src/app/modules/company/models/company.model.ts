@@ -1,4 +1,3 @@
-import { Employee } from "../../employee/models/employee.model";
 
 export class Company{
 

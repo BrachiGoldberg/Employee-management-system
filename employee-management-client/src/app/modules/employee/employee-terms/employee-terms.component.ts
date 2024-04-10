@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
-import { EmployeeTerms } from '../models/employee-terms.model';
-import { EmployeeService } from '../employee.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { EmployeeTerms } from '../models/employee-terms.model'
+import { EmployeeService } from '../employee.service'
+import { FormBuilder, FormGroup } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
 
 @Component({
   selector: 'app-employee-terms',

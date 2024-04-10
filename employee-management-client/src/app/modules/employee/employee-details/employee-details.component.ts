@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { EmployeeService } from '../employee.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../models/employee.model';
-import { Position } from '../models/position.model.';
-import { UnauthorizedError, errorsEnum } from '../../../app.component';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core'
+import { EmployeeService } from '../employee.service'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Employee } from '../models/employee.model'
+import { Position } from '../models/position.model.'
+import { UnauthorizedError, errorsEnum } from '../../../app.component'
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-employee-details',
@@ -26,7 +26,8 @@ export class EmployeeDetailsComponent {
       next: params => {
         this.empId = params['id']
         this.getEmployeeDetails()
-      }})
+      }
+    })
   }
 
   getEmployeeDetails() {
@@ -79,7 +80,7 @@ export class EmployeeDetailsComponent {
               title: "Deleted!",
               text: "The employee has been deleted.",
               icon: "success"
-            });
+            })
             this._router.navigate(['employee'])
           },
           error: err => {
@@ -88,7 +89,7 @@ export class EmployeeDetailsComponent {
         })
       }
     })
-    
+
   }
 
   errosFunction(statusCode: number) {

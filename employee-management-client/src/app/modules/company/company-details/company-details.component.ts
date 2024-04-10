@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { CompanyService } from '../company.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Company } from '../models/company.model';
-import { UnauthorizedError } from '../../../app.component';
+import { Component } from '@angular/core'
+import { CompanyService } from '../company.service'
+import { ActivatedRoute, Router } from '@angular/router'
+import { Company } from '../models/company.model'
+import { UnauthorizedError } from '../../../app.component'
 
 @Component({
   selector: 'app-company-details',
