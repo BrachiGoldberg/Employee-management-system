@@ -27,17 +27,25 @@ namespace Employees.Service
 
         public Task<BankAccount> AddAsync(BankAccount bankAccount)
         {
-            return _repository.AddAsync(bankAccount);
+            if (bankAccount != null && bankAccount.Id != 0
+                && bankAccount.BankAccountNumber != 0 && bankAccount.BranchNumber != 0
+                && bankAccount.BankNunber != 0)
+                return _repository.AddAsync(bankAccount);
+            return null;
         }
 
         public Task<BankAccount> UpdateAsync(int id, BankAccount bankAccount)
         {
-            return _repository.UpdateAsync(id, bankAccount);
+            if (bankAccount != null && bankAccount.Id != 0
+                && bankAccount.BankAccountNumber != 0 && bankAccount.BranchNumber != 0
+                && bankAccount.BankNunber != 0)
+                return _repository.UpdateAsync(id, bankAccount);
+            return null;
         }
 
         public Task<BankAccount> DeleteAsync(int id)
         {
-           return _repository.DeleteAsync(id);
+            return _repository.DeleteAsync(id);
         }
 
     }

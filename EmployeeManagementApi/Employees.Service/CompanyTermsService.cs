@@ -20,7 +20,9 @@ namespace Employees.Service
 
         public async Task<CompanyTerms> GetByIdAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            if (id > 0)
+                return await _repository.GetByIdAsync(id);
+            return null;
         }
 
         public async Task<CompanyTerms> AddCompanyTermsAsync(CompanyTerms companyTerms)
@@ -41,7 +43,9 @@ namespace Employees.Service
 
         public async Task<CompanyTerms> DeleteCompanyTermsAsync(int companyId)
         {
-            return await _repository.DeleteCompanyTermsAsync(companyId);
+            if (companyId > 0)
+                return await _repository.DeleteCompanyTermsAsync(companyId);
+            return null;
         }
 
     }

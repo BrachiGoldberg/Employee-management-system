@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Employees.Service
 {
+    /*
+     * A = there is an error in the details
+     * */
+    public enum ErrorsMassage {A, B }
     public class AttendanceJournalService : IAttendanceJournalService
     {
         private readonly IAttendanceJournalRepository _repository;
@@ -25,7 +29,10 @@ namespace Employees.Service
 
         public Task<AttendanceJournal> AddAsync(int employeeId, AttendanceJournal attendanceJournal)
         {
-            return _repository.AddAsync( employeeId, attendanceJournal);
+            if (employeeId > 0)
+                return _repository.AddAsync(employeeId, attendanceJournal);
+            else
+                throw new Exception(ErrorsMassage.A.ToString());
         }
 
     }

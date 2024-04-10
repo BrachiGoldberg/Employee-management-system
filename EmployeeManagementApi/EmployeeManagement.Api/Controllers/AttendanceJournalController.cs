@@ -1,6 +1,7 @@
 ﻿using EmployeeManagement.Api.Models;
 using Employees.Core.Entites;
 using Employees.Core.Services;
+using Employees.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,10 +38,19 @@ namespace EmployeeManagement.Api.Controllers
                 BeginningTime = new TimeOnly(aj.BeginHour, aj.BeginMinutes),
                 EndingTime = new TimeOnly(aj.EndHour, aj.EndMinutes)
             };
-            var result = await _service.AddAsync(id, myAj);
-            if (result == null)
-                return NotFound();
-            return Ok(result);
+            try
+            {
+                var result = await _service.AddAsync(id, myAj);
+                if (result == null)
+                    return NotFound();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == ErrorsMassage.A.ToString())
+                    return BadRequest("Error in entered data");
+                return BadRequest();
+            }
         }
 
         [HttpPost]

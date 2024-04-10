@@ -24,7 +24,9 @@ namespace Employees.Service
 
         public Task<Position> AddNewPositionAsync(Position position)
         {
-            return _repository.AddNewPositionAsync(position);
+            if (position != null && position.Name != null && position.Name != "")
+                return _repository.AddNewPositionAsync(position);
+            return null;
         }
     }
 }
