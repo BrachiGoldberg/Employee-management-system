@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { Employee } from '../models/employee.model'
-import { AbstractControl, FormArray, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms'
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms'
 import { EmployeeService } from '../employee.service'
 import { EmployeePosition, Position } from '../models/position.model.'
 import { DatePipe } from '@angular/common'
