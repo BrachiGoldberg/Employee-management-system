@@ -10,7 +10,6 @@ namespace EmployeeManagement.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class EmailController : ControllerBase
     {
 

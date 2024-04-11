@@ -92,7 +92,7 @@ namespace EmployeeManagement.Api.Controllers
                 TermsId = termsId,
                 BankAccountId = bankAccountId,
                 CompanyId = companyId
-            };//לבדוק איך להוסיף את מזהה החברה מתוך אוביקט ההתחברות
+            };
             var result = await _serivce.AddNewAsync(emp);
             if (result == null)
                 return NotFound();

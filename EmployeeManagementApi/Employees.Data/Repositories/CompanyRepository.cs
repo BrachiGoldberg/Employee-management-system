@@ -60,21 +60,15 @@ namespace Employees.Data.Repositories
             if (myCompany == null || company == null)
                 return null;
 
-            bool existDemoName = false;// existDemoUserName = false, existDemoPassword = false;
+            bool existDemoName = false;
             if (company.Name != myCompany.Name)
                 existDemoName = _data.Companies.Any(c => c.Name == company.Name);
-            //if (company.UserName != myCompany.UserName)
-            //    existDemoUserName = _data.Companies.Any(c => c.UserName == company.UserName); ;
-            //if (company.Password != myCompany.Password)
-            //    existDemoPassword = _data.Companies.Any(c => c.Password == company.Password);
 
             if (existDemoName)
                 return null;
 
             myCompany.Name = company.Name;
             myCompany.Description = company.Description;
-            //myCompany.UserName = company.UserName;
-            //myCompany.Password = company.Password;
             myCompany.Address = company.Address;
             myCompany.Email = company.Email;
 
@@ -128,7 +122,7 @@ namespace Employees.Data.Repositories
             return myCompany;
         }
 
-        //include delete all employees from the system, and company terms
+
         public async Task<Company> DeleteCompanyAsync(int id)
         {
             var myCopany = await _data.Companies.Include(c => c.Employees)
@@ -143,7 +137,6 @@ namespace Employees.Data.Repositories
             
 
             _data.Companies.Remove(myCopany);
-            //await _data.SaveChangesAsync();
 
             var result = await _termsRepository.DeleteCompanyTermsAsync(myCopany.TermsId);
             if (result == null)

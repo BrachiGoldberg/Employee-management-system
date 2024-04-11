@@ -99,12 +99,6 @@ namespace Employees.Data.Repositories
 
             await _data.EmployeePosition.AddRangeAsync(positions);
 
-            //foreach (var item in positionsId)
-            //{
-            //    var positoin = await _data.Positions.FindAsync(item);
-            //    if (positoin != null)
-            //        myEmp.Positions.Add(positoin);
-            //}
             await _data.SaveChangesAsync();
             return myEmp;
         }
@@ -126,12 +120,11 @@ namespace Employees.Data.Repositories
             _data.Employees.Remove(secMyEmp);
 
             var result = await _termsRepository.DeleteAsync(secMyEmp.TermsId);
-            //delete the bank account
+        
             var myBank = await _data.BankAccounts.FindAsync(secMyEmp.BankAccountId);
             if(myBank != null)
                 _data.BankAccounts.Remove(myBank);
 
-            //await _data.SaveChangesAsync();
             return secMyEmp;
         }
 

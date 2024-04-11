@@ -36,23 +36,6 @@ namespace EmployeeManagement.Api.Controllers
             if (result == null)
                 return Unauthorized();
 
-            //var claims = new List<Claim>()
-            //{
-            //    new Claim(ClaimTypes.Name , result.Name)
-            //};
-
-            //var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWT:Key")));
-            //var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
-            //var tokeOptions = new JwtSecurityToken(
-            //    issuer: _configuration.GetValue<string>("JWT:Issuer"),
-            //    audience: _configuration.GetValue<string>("JWT:Audience"),
-            //    claims: claims,
-            //    expires: DateTime.Now.AddMinutes(6),
-            //    signingCredentials: signinCredentials
-            //);
-
-            //var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-
             var tokenString = CreateJwtToken(result);
             return Ok(new { Token = tokenString, Company = _mapper.Map<CompanyDetailsDto>(result) });
 
@@ -75,8 +58,8 @@ namespace EmployeeManagement.Api.Controllers
             };
             var result = await _service.RegisterAsync(comp);
             if (result == null)
-                return BadRequest();//check which status code is fit here.
-            //return Ok(_mapper.Map<CompanyDto>(result));
+                return BadRequest();
+
 
             var tokenString = CreateJwtToken(result);
             return Ok(new { Token = tokenString, Company = _mapper.Map<CompanyDetailsDto>(result) });

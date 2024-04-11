@@ -12,9 +12,7 @@ namespace Employees.Core.Entites
 
         public string Name { get; set; }
 
-        //public bool IsAdministrative { get; set; }
-
-        public List<EmployeePosition> Employees { get; set; }//לבדוק האם נכון לוגית לשים את זה פה
+        public List<EmployeePosition> Employees { get; set; }
 
     }
 }

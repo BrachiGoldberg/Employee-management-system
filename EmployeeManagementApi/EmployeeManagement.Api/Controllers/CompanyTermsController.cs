@@ -73,14 +73,5 @@ namespace EmployeeManagement.Api.Controllers
             return Ok(result);
         }
 
-
-        //[HttpDelete("{conpanyId}")]
-        //public async Task<ActionResult<CompanyTerms>> Delete(int conpanyId)
-        //{
-        //    var result = await _serivce.DeleteCompanyTermsAsync(conpanyId);
-        //    if (result == null)
-        //        return NotFound();
-        //    return Ok(result);
-        //}
     }
 }

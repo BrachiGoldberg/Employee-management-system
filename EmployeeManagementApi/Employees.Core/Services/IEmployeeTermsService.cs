@@ -10,6 +10,7 @@ namespace Employees.Core.Services
     public interface IEmployeeTermsService
     {
         public Task<EmployeeTerms> GetByIdAsync(int termsId);
+
         public Task<EmployeeTerms> AddAsync(EmployeeTerms terms);
 
         public Task<EmployeeTerms> UpdateAsync(int employeeId, EmployeeTerms terms);

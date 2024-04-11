@@ -21,10 +21,6 @@ namespace Employees.Core.Repositories
 
         public Task<Employee> UpadtePositionsToEmployeeAsync(int id, List<EmployeePosition> positionsId);
 
-        //public Task<Employee> AddPositionAsync(int id, int positionId);
-
-        //public Task<Employee> RemovePositionAsync(int id, int positinId);
-
         public Task<Employee> DeleteFromDbAsync(int id);
 
     }

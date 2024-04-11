@@ -8,6 +8,7 @@ namespace Employees.Data
     public class DataContext : DbContext
     {
         private readonly IConfiguration _configuration;
+
         public DbSet<Company> Companies { get; set; }
 
         public DbSet<Employee> Employees { get; set; }

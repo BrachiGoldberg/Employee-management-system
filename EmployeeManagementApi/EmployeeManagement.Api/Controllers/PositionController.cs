@@ -36,7 +36,6 @@ namespace EmployeeManagement.Api.Controllers
             var myPos = new Position()
             {
                 Name = position.Name,
-                //IsAdministrative = position.IsAdministrative
             };
             var result = await _service.AddNewPositionAsync(myPos);
 

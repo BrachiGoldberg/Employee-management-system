@@ -12,6 +12,5 @@ namespace Employees.Core.DTOs
 
         public string Name { get; set; }
 
-        public bool IsAdministrative { get; set; }
     }
 }

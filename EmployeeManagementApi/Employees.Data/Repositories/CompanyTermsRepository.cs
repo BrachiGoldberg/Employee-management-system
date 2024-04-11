@@ -62,7 +62,6 @@ namespace Employees.Data.Repositories
             if(myTerms == null)
                 return null;
             _data.CompanyTerms.Remove(myTerms);
-            //await _data.SaveChangesAsync();
             return myTerms;
         }
 
