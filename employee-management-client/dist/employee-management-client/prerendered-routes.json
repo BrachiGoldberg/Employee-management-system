@@ -1,0 +1,26 @@
+{
+  "routes": [
+    "/company",
+    "/company/add-manager",
+    "/company/list-employees",
+    "/company/login-company",
+    "/company/manager-account-b",
+    "/company/manager-emp-terms",
+    "/company/new-account-b",
+    "/company/new-company",
+    "/company/new-emp",
+    "/company/new-emp-terms",
+    "/company/new-terms",
+    "/company/update-account-b",
+    "/employee",
+    "/employee/add-manager",
+    "/employee/list-employees",
+    "/employee/manager-account-b",
+    "/employee/manager-emp-terms",
+    "/employee/new-account-b",
+    "/employee/new-emp",
+    "/employee/new-emp-terms",
+    "/employee/update-account-b",
+    "/home"
+  ]
+}
